@@ -1,0 +1,136 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(145deg, #0a0f2c, #1c1f42);
+  color: #f0f8ff;
+  overflow-x: hidden;
+}
+
+/* Glowing moonlight background */
+.moonlight {
+  position: fixed;
+  top: -150px;
+  left: -150px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #d3e9ff88 0%, transparent 70%);
+  animation: floatGlow 10s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes floatGlow {
+  0% { transform: scale(1) translateY(0); opacity: 0.7; }
+  100% { transform: scale(1.2) translateY(20px); opacity: 1; }
+}
+
+/* Header Styling */
+header {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background: linear-gradient(to right, #1a1e38cc, #0f142d99);
+  border-bottom: 3px solid #58caff;
+  box-shadow: 0 0 15px #58caff66;
+  animation: fadeIn 2s ease-in-out;
+}
+
+header h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: #b6e0ff;
+  text-shadow: 0 0 10px #82cfff, 0 0 20px #3a92ff;
+}
+
+/* Grid Layout */
+.drama-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 3rem;
+  animation: fadeIn 3s ease;
+}
+
+/* Drama Card Styling */
+.drama-card {
+  background: #1a1f3f;
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #00bcd4, #3f51b5, #00bcd4) 1;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #00bcd466;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: cardFloat 2.5s ease-in-out infinite alternate;
+}
+
+.drama-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 0 25px #00bcd4aa;
+}
+
+/* Images */
+.drama-card img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  border-bottom: 2px solid #58caff99;
+}
+
+.drama-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.15) saturate(1.2);
+}
+
+/* Titles */
+.drama-card h2 {
+  font-size: 1.25rem;
+  color: #c6e2ff;
+  padding: 1rem 1rem 0.5rem;
+  text-shadow: 0 0 8px #58caffcc;
+  animation: slideInText 1.5s ease;
+}
+
+/* Descriptions */
+.drama-card p {
+  font-size: 0.95rem;
+  color: #e0eafc;
+  padding: 0 1rem 1.5rem;
+  line-height: 1.5;
+  animation: fadeInText 2s ease;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #88aaff;
+  background: #101432;
+  border-top: 2px solid #58caff99;
+  box-shadow: inset 0 1px 6px #58caff33;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInText {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(8px); }
+}
